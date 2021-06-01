@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trang Chủ</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/SuKien.js"></script>
+</head>
+		<style>
+            .onColor{
+                background: #3992ad;
+            }
+			body
+			{
+				width: 970px;
+				height: auto;
+				margin: auto;
+				background-color: #588EA8;
+			}
+        </style>
+
+<body>
+<div style="background-color: #ECECEC;">
+	<div class="col-md-12" style=" float: inherit;">
+		<img src="../img/banner-phongdaotao.jpg" height="170" alt="bannerTruong" />
+    </div>
+	<!-- Menu -->
+    <ul class="breadcrumb">
+    	<li><a href="#" id="home_menu"><span class="glyphicon glyphicon-home" style="margin-right:5px;"></span>Home</a></li>
+        <li><a href="#" id="nhap_diem">Nhập Điểm Sinh Viên</a></li>
+        <li><a href="#" id="mo_lop">Nhập Môn Mở Lớp</a></li>
+       	<li><a href="#" id="dang_ky">Đăng Ký Môn Học</a></li>
+        <li><a href="#" id="xem_diem">Xem Điểm</a></li>
+        <li><a href="#" id="xem_lichhoc">Xem Lịch Học</a></li>
+		<li style="padding-left: 65px;" ><a href="#" id="dang_nhap">Đăng Nhập</a></li>
+        <li><a href="#" id="dang_kyTK">Đăng Ký</a></li>
+    </ul>
+    
+     <!-- Bảng Lưu Thông Tin Và Điểm Cho Sinh Viên -->
+	<div class="container-fluid" id="xemThongTin">
+    	<div class="panel panel-primary">
+       		<div class="panel-heading"><span id="chiTietSV">Chi Tiết Thông Tin Của Sinh Viên</span>
+        	</div>
+        	<div class="panel-body">
+            	<table class="table">
+                	<thead>
+                	<tr>
+                    	<th>STT</th>
+                    	<th>Mã Sinh Viên</th>
+                    	<th>Họ Tên</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Điểm Lập Trình Java</th>
+                        <th>Điểm Lập Trình Web</th>
+                    </tr>
+                    <tr>
+                    	<td>1</td>
+                    	<td>17073741</td>
+                    	<td>Đặng Thanh Tùng</td>
+                        <td>17073741</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    </thead>
+                    <tbody id="dataListDiem">
+                    	
+                    </tbody>
+                </table>
+            </div>
+       		<div class="panel-footer">Đại Học Công Nghiệp Hồ Chí Minh</div>
+     	</div>
+     </div>
+	
+     <!-- Phần Nhập Thông Tin Và Điểm Cho Các Sinh Viên -->
+     	<div class="container-fluid" id="nhapDiem">
+    	<div class="panel panel-primary">
+       		<div class="panel-heading">Nhập Thông Tin Và Điểm Cho Sinh Viên
+        	</div>
+        	<div class="panel-body">
+				<form class="form-horizontal" method="get" action="#add_SV">
+                	<div class="form-group">
+               			<label class="control-label col-md-2" for="maSV">Mã Sinh Viên:</label>
+                        <div class="col-md-10">
+                			<input type="text" class="form-control" id="txtmaSV" name="maSV" placeholder="Nhập Mã Sinh Viên"/>
+                            <span id="tbLoiMaSV" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    	<label class="control-label col-md-2" for="hoTen">Họ Và Tên: </label>   
+                        <div class="col-md-10">            
+                        	<input type="text" class="form-control" name="txthoTen" id="tenSV" placeholder="Nhập Họ Tên"/>
+                            <span id="tbLoiHoTenSV" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="STC">Số Điện Thoại: </label>
+                        <div class="col-md-10">
+                    		<input type="text" class="form-control" id="txtsoDT" name="txt_SĐT" placeholder="Nhập Số Điện Thoại"/>
+                    		<span id="tbLoiSDT" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    	<label class="control-label col-md-2" for="diemJava">Điểm Java:  </label>
+                    	<div class="col-md-10">
+                        	<input type="text" class="form-control" id="txtDiemJava" name="diemJava" placeholder="Nhập Điểm Java"/>
+                        	<span id="tbLoiDiemJava" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    	<label class="control-label col-md-2" for="diemWeb">Điểm Web: </label>
+                        <div class="col-md-10">
+                    		<input type="text" class="form-control" id="txtDiemWeb" name="diemWeb" placeholder="Nhập Điểm Web"/>
+                        	<span id="tbLoiDiemWeb" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                    	<div class="btn-group col-md-12">
+                    		<span class="col-md-2">&nbsp;&nbsp;</span><button type="button" class="btn btn-primary col-md-2" id="add_SV">Thêm</button>
+                    		<button type="reset" class="btn btn-primary col-md-2">Reset</button>
+                    	</div>
+                    </div>
+                </form>
+            </div>
+       		<div class="panel-footer">Nhập Điểm Sinh Viên</div>
+     	</div>
+     </div>
+     
+     <!-- Phần Nhập Môn Học Mở Lớp -->
+     	<div class="container-fluid" id="LopHocPhanMo">
+    	<div class="panel panel-primary">
+       		<div class="panel-heading">Mở Lớp Đăng Ký Học Phần
+        	</div>
+        	<div class="panel-body">
+            	<table id="tb1" class="table table-striped table-hover">
+                	<thead>
+                	<tr>
+                    	<th>STT</th>
+                    	<th>Mã Lớp Học Phần</th>
+                    	<th>Tên Môn Học</th>
+                        <th>Số Tín Chỉ</th>
+                        <th>Tiết Học</th>
+                        <th>Phòng</th>
+                    </tr>
+                    </thead>
+                     <tbody id="dataListMH">
+                    	<tr>
+                    		<td>1</td>
+                    		<td>40012032</td>
+                    		<td>Hệ Thống Và Công Nghệ Web</td>
+                        	<td>3</td>
+                        	<td>T3-T4 Thứ 6</td>
+                        	<td>H.4.1</td>
+
+                   		 </tr>
+                   		 <tr>
+                    		<td>2</td>
+                    		<td>400120023</td>
+                    		<td>Lập Trình Hướng Sự Kiện Với Công Nghệ Java</td>
+                       	 	<td>4</td>
+                        	<td>T3-T5 Thứ 2</td>
+                        	<td>A2.01</td>
+                    	</tr>
+                        <tr>
+                    		<td>3</td>
+                    		<td>420300231601</td>
+                    		<td>Quản trị và bảo trì hệ thống </td>
+                       	 	<td>3</td>
+                        	<td>T6-T8 Thứ 4</td>
+                        	<td>V11.01</td>
+                    	</tr>
+                         <tr>
+                    		<td>4</td>
+                    		<td>420300099411</td>
+                    		<td>Thống kê máy tính & ứng dụng</td>
+                       	 	<td>2</td>
+                        	<td>T6-T8 Thứ 5</td>
+                        	<td>A1.01</td>
+                    	</tr>
+                         <tr>
+                    		<td>5</td>
+                    		<td>40012043</td>
+                    		<td>Lập Trình Phân Tán Với Công Nghệ Java</td>
+                       	 	<td>4</td>
+                        	<td>T3-T5 Thứ 6</td>
+                        	<td>X10.01</td>
+                    	</tr>
+                        </tbody>
+                </table>
+            </div>
+       		<div class="panel-footer">Danh Sách Học Phần Đã Mở</div>
+        </div>
+     </div>
+     
+        <!-- Phần Đăng Kí Môn Học -->
+     	<div class="container-fluid" id="dangKyMH">
+    	<div class="panel panel-primary">
+       		<div class="panel-heading">Các Lớp Học Phần Đã Mở
+        	</div>
+        	<div class="panel-body">
+            	<table id="tb2" class="table table-striped table-hover">
+                	<thead>
+                	<tr>
+                    	<th>STT</th>
+                    	<th>Mã Lớp Học Phần</th>
+                    	<th>Tên Môn Học</th>
+                        <th>Số Tín Chỉ</th>
+                        <th>Tiết Học</th>
+                        <th>Phòng</th>
+                    </tr>
+                    </thead>
+                     <tbody id="dataListMHDM">
+                    	<tr>
+                    		<td>1</td>
+                    		<td>40012032</td>
+                    		<td>Hệ Thống Và Công Nghệ Web</td>
+                        	<td>3</td>
+                        	<td>T3-T4 Thứ 6</td>
+                        	<td>H.4.1</td>
+
+                   		 </tr>
+                   		 <tr>
+                    		<td>2</td>
+                    		<td>400120023</td>
+                    		<td>Lập Trình Hướng Sự Kiện Với Công Nghệ Java</td>
+                       	 	<td>4</td>
+                        	<td>T3-T5 Thứ 2</td>
+                        	<td>A2.01</td>
+                    	</tr>
+                         <tr>
+                    		<td>3</td>
+                    		<td>4001200234</td>
+                    		<td>Xây Dựng Phần Mềm</td>
+                       	 	<td>3</td>
+                        	<td>T3-T5 Thứ 2</td>
+                        	<td>V11.01</td>
+                    	</tr>
+                         <tr>
+                    		<td>4</td>
+                    		<td>40012056</td>
+                    		<td>Kiến Trúc Và Thiết Kế Phần Mềm</td>
+                       	 	<td>4</td>
+                        	<td>T6-T8 Thứ 5</td>
+                        	<td>A1.01</td>
+                    	</tr>
+                         <tr>
+                    		<td>5</td>
+                    		<td>40012043</td>
+                    		<td>Lập Trình Phân Tán Với Công Nghệ Java</td>
+                       	 	<td>4</td>
+                        	<td>T3-T5 Thứ 6</td>
+                        	<td>X10.01</td>
+                    	</tr>
+                        </tbody>
+                </table>
+            </div>
+       		<div class="panel-footer">Danh Sách Học Phần Đã Mở</div>
+            <div class="dangKi1">
+            	<button type="button" class="btn btn-primary col-md-12" id="dangKiMH">Đăng Kí</button>
+     		</div>
+        </div>
+     </div>
+     
+     <!-- Phần Nhập Thông Tin Mở Lớp Các Môn Học -->
+     	<div class="container-fluid" id="nhapMonHoc">
+    	<div class="panel panel-primary">
+       		<div class="panel-heading">Nhập Môn Học Cần Mở Lớp
+        	</div>
+        	<div class="panel-body">
+				<form class="form-horizontal" method="get" action="#add_MH">
+                	<div class="form-group">
+               			<label class="control-label col-md-2" for="maHP">Mã Học Phần:</label>
+                        <div class="col-md-10">
+                			<input type="text" class="form-control" id="ma_HP" name="maHP" placeholder="Nhập Mã Học Phần"/>
+                            <span id="tbLoiMaHP" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    	<label class="control-label col-md-2" for="tenMon">Tên Môn Học: </label>   
+                        <div class="col-md-10">            
+                        	<input type="text" class="form-control" name="tenMon" id="ten_MH" placeholder="Nhập Tên Môn Học"/>
+                            <span id="tbLoiTenMH" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="STC">Số Tín Chỉ: </label>
+                        <div class="col-md-10">
+                    		<input type="text" class="form-control" name="STC" id="so_TC" placeholder="Nhập Số Tín Chỉ"/>
+                            <span id="tbLoiSoTC" class="text-danger">*</span>
+                    	</div>
+                    </div>
+                    <div class="form-group">
+                    	<label class="control-label col-md-2" for="TietHoc">Tiết Học:  </label>
+                    	<div class="col-md-10">
+                        	<input type="text" class="form-control" name="TietHoc" id="so_TietHoc" placeholder="Nhập Tiết Học"/>
+                            <span id="tbLoiTietHoc" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    	<label class="control-label col-md-2" for="PhongHoc">Phòng Học: </label>
+                        <div class="col-md-10">
+                    		<input type="text" class="form-control" name="PhongHoc" id="phong_Hoc" placeholder="Nhập Phòng Học"/>
+                            <span id="tbLoiPhongHoc" class="text-danger">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                    	<div class="btn-group col-md-12">
+                    		<span class="col-md-2">&nbsp;&nbsp;</span>
+                            <button type="button" class="btn btn-primary col-md-2" id="add_MH">Mở Lớp</button>
+                    		<button type="reset" class="btn btn-primary col-md-2">Reset</button>
+                    	</div>
+                    </div>
+                </form>
+            </div>
+       		<div class="panel-footer">Mở Lớp Học Phần</div>
+     	</div>
+     </div>
+     
+     
+     
+      <!-- Phần Xem Lịch Học  -->
+     	<div class="container-fluid" id="LichHoc">
+    	<div class="panel panel-primary">
+       		<div class="panel-heading">Lịch Học Các Môn Đã Đăng Kí
+        	</div>
+        	<div class="panel-body">
+            	<table id="tb3" class="table table-striped table-hover">
+                	<thead>
+                	<tr>
+                    	<th>STT</th>
+                    	<th>Mã Lớp Học Phần</th>
+                    	<th>Tên Môn Học</th>
+                        <th>Số Tín Chỉ</th>
+                        <th>Tiết Học</th>
+                        <th>Phòng</th>
+                    </tr>
+                    </thead>
+                     <tbody id="dataListLichHoc">
+                    	<tr>
+                    		<td>1</td>
+                    		<td>40012032</td>
+                    		<td>Hệ Thống Và Công Nghệ Web</td>
+                        	<td>3</td>
+                        	<td>T3-T4 Thứ 6</td>
+                        	<td>H.4.1</td>
+
+                   		 </tr>
+                        </tbody>
+                </table>
+            </div>
+       		<div class="panel-footer">Lịch Học </div>
+        </div>
+     </div>
+     
+     
+         <!--Phần Màn Hình Home-->
+    <div class="panel panel-default" id="thongBao">
+ 	 	<div class="panel-heading">Thông Tin Nổi Bật</div>
+ 	 	<div class="panel-body">
+        	<div class="list-group">
+ 				 <a href="http://www.hui.edu.vn/vi/thong-bao-fi20/thong-bao-v-v-nghi-le-ngay-gio-to-hung-vuong-ngay-giai-phong-mien-nam-va-ngay-quoc-te-lao-dong-nam-2019-a1579.html" class="list-group-item active" target="_blank">Thông Báo: Toàn trường được nghỉ lễ 30-4 , 1-5</a>
+ 				 <a href="http://fit.iuh.edu.vn/upload/0199900060/files/%5B13-03-2019_07_53_58%5Dthongbao_dang_ki_hoc_phan_hk3_2018_2019_chinhthuc.pdf" class="list-group-item" target="_blank">Thông Báo: Mở Danh Sách Các Lớp Học Phần Trong Đợt Hè.</a>
+ 				 <a href="#" class="list-group-item">Thông Báo: Thời Gian Đóng Học Phí Đợt Hè.</a>
+			</div>
+        </div>
+	</div>
+     
+     <div class="panel panel-default" id="hoatDong">
+  		<div class="panel-heading active">Ảnh Nổi Bật</div>
+  		<div class="panel-body">
+        	<div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="thumbnail"  >
+                    <a href="https://www.facebook.com/sviuh/" target="_blank">
+                      <img src="../img/trangtruong.jpg" alt="Lights" width="254" style="width:310px;height:350px;">
+                      <div class="caption">
+                       <p>Nguồn: Page IUH Đại Học Công Nghiệp  Tp.HCM</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://www.facebook.com/nusinhiuh/?epa=SEARCH_BOX" target="_blank">
+                      <img src="../img/nuSinhIUH.jpg" alt="Nature" style="width:310px;height:350px;">
+                      <div class="caption">
+                        <p>Nguồn: Page Nữ Sinh IUH </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://www.facebook.com/doanthanhnien.iuh/" target="_blank">
+                      <img src="../img/doantruong.jpg" alt="Fjords" style="width:310px;height:350px;">
+                      <div class="caption">
+                        <p>Nguồn: Page Đoàn thanh niên Trường Đại học Công Nghiệp TP.HCM </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+ 		 </div>
+</div>
+        
+        </div>
+		</div>
+     
+     
+     <!--Phần Footer-->
+     <div class="modal-footer bg-primary">
+     		@2019 Đặng Thanh Tùng - MSSV:17073741 Trường Đại Học Công Nghiệp TP.Hồ Chí Minh
+     </div>
+     
+     
+     
+ <!--Phần Modal Đăng Nhập-->
+   <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">  &times;</button>
+                <h4 style="text-align:center"> Đăng Nhập </h4>
+            </div>
+             <div class="modal-body">
+             <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <div id="thongbaoLoi" class="text-danger" style="text-align:center"></div>
+                </div>
+                <div class="form-group">
+                	 <span id="tbMaDN" class="text-danger">*</span>
+                    <label for="txtTenDN" class="control-label col-xs-3">Tên Đăng Nhập </label>
+                    <div class="col-md-9">
+                    <input type="text" class="form-control" id="txtTenDN" placeholder="Tên Đăng Nhập Không Chứa Kí Tự Đặc Biệt" />
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="txtMatKhauDN" class="control-label col-xs-3">Mật Khẩu</label>
+                 <div class="col-md-9">
+                <input type="text" class="form-control" id="txtMatKhauDN" placeholder="Nhập Mật Khẩu Dài Hơn 8 Kí Tự" />
+                </div>
+                <span id="tbMatKhauDN" class="text-danger">*</span>
+            </div>
+            <button type="button" id="btnLogIn" class="btn btn-success btn-block">LogIn </button>
+            </form>
+         </div>
+         <div class="modal-footer">
+         </div>
+      </div>
+      </div>
+	</div>
+    
+    
+ <!--Phần Modal Đăng Ký-->
+   <div class="modal fade" id="myModalDK" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">  &times;</button>
+                <h4 style="text-align:center"> Đăng Ký </h4>
+            </div>
+             <div class="modal-body">
+             <form role="form" class="form-horizontal">
+                <div class="form-group">
+                    <div id="thongbaoLoi" class="text-danger" style="text-align:center"></div>
+                </div>
+                <div class="form-group">
+                	<span id="tbTenDNDK" class="text-danger">*</span>
+                    <label for="txtMaDK" class="control-label col-xs-3">Tên Đăng Nhập </label>
+                    <div class="col-md-9">
+                    <input type="text" class="form-control" id="txtTenDNDK" placeholder="Tên Đăng Nhập Không Chứa Kí Tự Đặc Biệt" />
+                    </div>
+                </div>
+                <div class="form-group">
+                	<span id="tbTenDK" class="text-danger">*</span>
+                    <label for="txtHoTenDK" class="control-label col-xs-3">Họ Và Tên: </label>
+                    <div class="col-md-9">
+                    <input type="text" class="form-control" id="txtHoTenDK" placeholder="Họ Và Tên Là Chữ" />
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                	<span id="tbMatKhauDK" class="text-danger">*</span>
+                <label for="txtMatKhauDK" class="control-label col-xs-3">Mật Khẩu:</label>
+                 <div class="col-md-9">
+                <input type="text" class="form-control" id="txtMatKhauDK" placeholder="Nhập Mật Khẩu Dài Hơn 8 Kí Tự" />
+                </div>
+                
+            	</div>
+                <div class="form-group">
+               		 <span id="tbMKXN" class="text-danger">*</span>
+                    <label for="txtXNMatKhau" class="control-label col-xs-3">Xác Nhận Mật Khẩu: </label>
+                    <div class="col-md-9">
+                    <input type="text" class="form-control" id="txtXNMatKhau" placeholder="Mật Khẩu Ít Nhất 8 Ki Tự" />
+                    </div>
+                   
+                </div>
+            <button type="button" id="btnDKi" class="btn btn-success btn-block">Đăng Ký </button>
+            </form>
+         </div>
+         <div class="modal-footer">
+         </div>
+      </div>
+      </div>
+	</div>
+</div>
+</body>
+</html>
